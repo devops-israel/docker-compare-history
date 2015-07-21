@@ -66,7 +66,7 @@ func main() {
 			history_2 = append(history_2, history.ID)
 		}
 
-		fmt.Println(testEq(history_1, history_2, match))
+		fmt.Println(testEq(reverseStrings(history_1), reverseStrings(history_2), match))
 	}
 
 	app.Run(os.Args)
@@ -88,4 +88,11 @@ func testEq(a, b []string, match int64) bool {
 	}
 
 	return true
+}
+
+func reverseStrings(input []string) []string {
+	if len(input) == 0 {
+		return input
+	}
+	return append(reverseStrings(input[1:]), input[0])
 }
